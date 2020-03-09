@@ -34,76 +34,76 @@ type (
 
 	// The ReceiptCreationDate type indicates the date when the app receipt was created.
 	ReceiptCreationDate struct {
-		CreationDate    string `json:"receipt_creation_date"`
-		CreationDateMS  string `json:"receipt_creation_date_ms"`
-		CreationDatePST string `json:"receipt_creation_date_pst"`
+		CreationDate    string `json:"receipt_creation_date" bson:"receipt_creation_date,omitempty"`
+		CreationDateMS  string `json:"receipt_creation_date_ms" bson:"receipt_creation_date_ms,omitempty"`
+		CreationDatePST string `json:"receipt_creation_date_pst" bson:"receipt_creation_date_pst,omitempty"`
 	}
 
 	// The RequestDate type indicates the date and time that the request was sent
 	RequestDate struct {
-		RequestDate    string `json:"request_date"`
-		RequestDateMS  string `json:"request_date_ms"`
-		RequestDatePST string `json:"request_date_pst"`
+		RequestDate    string `json:"request_date" bson:"request_date,omitempty"`
+		RequestDateMS  string `json:"request_date_ms" bson:"request_date_ms,omitempty"`
+		RequestDatePST string `json:"request_date_pst" bson:"request_date_pst,omitempty"`
 	}
 
 	// The PurchaseDate type indicates the date and time that the item was purchased
 	PurchaseDate struct {
-		PurchaseDate    string `json:"purchase_date"`
-		PurchaseDateMS  string `json:"purchase_date_ms"`
-		PurchaseDatePST string `json:"purchase_date_pst"`
+		PurchaseDate    string `json:"purchase_date" bson:"purchase_date,omitempty"`
+		PurchaseDateMS  string `json:"purchase_date_ms" bson:"purchase_date_ms,omitempty"`
+		PurchaseDatePST string `json:"purchase_date_pst" bson:"purchase_date_pst,omitempty"`
 	}
 
 	// The OriginalPurchaseDate type indicates the beginning of the subscription period
 	OriginalPurchaseDate struct {
-		OriginalPurchaseDate    string `json:"original_purchase_date"`
-		OriginalPurchaseDateMS  string `json:"original_purchase_date_ms"`
-		OriginalPurchaseDatePST string `json:"original_purchase_date_pst"`
+		OriginalPurchaseDate    string `json:"original_purchase_date" bson:"original_purchase_date,omitempty"`
+		OriginalPurchaseDateMS  string `json:"original_purchase_date_ms" bson:"original_purchase_date_ms,omitempty"`
+		OriginalPurchaseDatePST string `json:"original_purchase_date_pst" bson:"original_purchase_date_pst,omitempty"`
 	}
 
 	// The ExpiresDate type indicates the expiration date for the subscription
 	ExpiresDate struct {
-		ExpiresDate             string `json:"expires_date,omitempty"`
-		ExpiresDateMS           string `json:"expires_date_ms,omitempty"`
-		ExpiresDatePST          string `json:"expires_date_pst,omitempty"`
-		ExpiresDateFormatted    string `json:"expires_date_formatted,omitempty"`
-		ExpiresDateFormattedPST string `json:"expires_date_formatted_pst,omitempty"`
+		ExpiresDate             string `json:"expires_date,omitempty" bson:"expires_date,omitempty"`
+		ExpiresDateMS           string `json:"expires_date_ms,omitempty" bson:"expires_date_ms,omitempty"`
+		ExpiresDatePST          string `json:"expires_date_pst,omitempty" bson:"expires_date_pst,omitempty"`
+		ExpiresDateFormatted    string `json:"expires_date_formatted,omitempty" bson:"expires_date_formatted,omitempty"`
+		ExpiresDateFormattedPST string `json:"expires_date_formatted_pst,omitempty" bson:"expires_date_formatted_pst,omitempty"`
 	}
 
 	// The CancellationDate type indicates the time and date of the cancellation by Apple customer support
 	CancellationDate struct {
-		CancellationDate    string `json:"cancellation_date,omitempty"`
-		CancellationDateMS  string `json:"cancellation_date_ms,omitempty"`
-		CancellationDatePST string `json:"cancellation_date_pst,omitempty"`
+		CancellationDate    string `json:"cancellation_date,omitempty" bson:"cancellation_date,omitempty"`
+		CancellationDateMS  string `json:"cancellation_date_ms,omitempty" bson:"cancellation_date_ms,omitempty"`
+		CancellationDatePST string `json:"cancellation_date_pst,omitempty" bson:"cancellation_date_pst,omitempty"`
 	}
 
 	// The GracePeriodDate type indicates the grace period date for the subscription
 	GracePeriodDate struct {
-		GracePeriodDate    string `json:"grace_period_expires_date,omitempty"`
-		GracePeriodDateMS  string `json:"grace_period_expires_date_ms,omitempty"`
-		GracePeriodDatePST string `json:"grace_period_expires_date_pst,omitempty"`
+		GracePeriodDate    string `json:"grace_period_expires_date,omitempty" bson:"grace_period_expires_date,omitempty"`
+		GracePeriodDateMS  string `json:"grace_period_expires_date_ms,omitempty" bson:"grace_period_expires_date_ms,omitempty"`
+		GracePeriodDatePST string `json:"grace_period_expires_date_pst,omitempty" bson:"grace_period_expires_date_pst,omitempty"`
 	}
 
 	// The InApp type has the receipt attributes
 	InApp struct {
-		Quantity                    string `json:"quantity"`
-		ProductID                   string `json:"product_id"`
-		TransactionID               string `json:"transaction_id"`
-		OriginalTransactionID       string `json:"original_transaction_id"`
-		WebOrderLineItemID          string `json:"web_order_line_item_id,omitempty"`
-		PromotionalOfferID          string `json:"promotional_offer_id"`
-		SubscriptionGroupIdentifier string `json:"subscription_group_identifier"`
+		Quantity                    string `json:"quantity" bson:"quantity"`
+		ProductID                   string `json:"product_id" bson:"product_id"`
+		TransactionID               string `json:"transaction_id" bson:"transaction_id"`
+		OriginalTransactionID       string `json:"original_transaction_id" bson:"original_transaction_id"`
+		WebOrderLineItemID          string `json:"web_order_line_item_id,omitempty" bson:"web_order_line_item_id,omitempty"`
+		PromotionalOfferID          string `json:"promotional_offer_id" bson:"promotional_offer_id"`
+		SubscriptionGroupIdentifier string `json:"subscription_group_identifier" bson:"subscription_group_identifier"`
 
-		IsTrialPeriod        string `json:"is_trial_period"`
-		IsInIntroOfferPeriod string `json:"is_in_intro_offer_period,omitempty"`
-		IsUpgraded           string `json:"is_upgraded,omitempty"`
+		IsTrialPeriod        string `json:"is_trial_period" bson:"is_trial_period"`
+		IsInIntroOfferPeriod string `json:"is_in_intro_offer_period,omitempty" bson:"is_in_intro_offer_period,omitempty"`
+		IsUpgraded           string `json:"is_upgraded,omitempty" bson:"is_upgraded,omitempty"`
 
-		ExpiresDate
+		ExpiresDate `bson:",inline"`
 
-		PurchaseDate
-		OriginalPurchaseDate
+		PurchaseDate         `bson:",inline"`
+		OriginalPurchaseDate `bson:",inline"`
 
-		CancellationDate
-		CancellationReason string `json:"cancellation_reason,omitempty"`
+		CancellationDate `bson:",inline"`
+		CancellationReason string `json:"cancellation_reason,omitempty" bson:"cancellation_reason,omitempty"`
 	}
 
 	// The Receipt type has whole data of receipt
@@ -124,15 +124,15 @@ type (
 
 	// A pending renewal may refer to a renewal that is scheduled in the future or a renewal that failed in the past for some reason.
 	PendingRenewalInfo struct {
-		SubscriptionExpirationIntent   string `json:"expiration_intent"`
-		SubscriptionAutoRenewProductID string `json:"auto_renew_product_id"`
-		SubscriptionRetryFlag          string `json:"is_in_billing_retry_period"`
-		SubscriptionAutoRenewStatus    string `json:"auto_renew_status"`
-		SubscriptionPriceConsentStatus string `json:"price_consent_status"`
-		ProductID                      string `json:"product_id"`
-		OriginalTransactionID          string `json:"original_transaction_id"`
+		SubscriptionExpirationIntent   string `json:"expiration_intent" bson:"expiration_intent"`
+		SubscriptionAutoRenewProductID string `json:"auto_renew_product_id" bson:"auto_renew_product_id"`
+		SubscriptionRetryFlag          string `json:"is_in_billing_retry_period" bson:"is_in_billing_retry_period"`
+		SubscriptionAutoRenewStatus    string `json:"auto_renew_status" bson:"auto_renew_status"`
+		SubscriptionPriceConsentStatus string `json:"price_consent_status" bson:"price_consent_status"`
+		ProductID                      string `json:"product_id" bson:"product_id"`
+		OriginalTransactionID          string `json:"original_transaction_id" bson:"original_transaction_id"`
 
-		GracePeriodDate
+		GracePeriodDate `bson:",inline"`
 	}
 
 	// The IAPResponse type has the response properties

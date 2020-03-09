@@ -67,43 +67,43 @@ type NotificationUnifiedReceipt struct {
 }
 
 type SubscriptionNotification struct {
-	Environment      NotificationEnvironment `json:"environment"`
-	NotificationType NotificationType        `json:"notification_type"`
+	Environment      NotificationEnvironment `json:"environment" bson:"environment"`
+	NotificationType NotificationType        `json:"notification_type" bson:"notification_type"`
 
 	// Not show in raw notify body
-	Password              string `json:"password"`
-	OriginalTransactionID string `json:"original_transaction_id"`
-	AutoRenewAdamID       string `json:"auto_renew_adam_id"`
+	Password              string `json:"password" bson:"password"`
+	OriginalTransactionID string `json:"original_transaction_id" bson:"original_transaction_id"`
+	AutoRenewAdamID       string `json:"auto_renew_adam_id" bson:"auto_renew_adam_id"`
 
 	// The primary key for identifying a subscription purchase.
 	// Posted only if the notification_type is CANCEL.
-	WebOrderLineItemID string `json:"web_order_line_item_id"`
+	WebOrderLineItemID string `json:"web_order_line_item_id" bson:"web_order_line_item_id"`
 
 	// This is the same as the Subscription Expiration Intent in the receipt.
 	// Posted only if notification_type is RENEWAL or INTERACTIVE_RENEWAL.
-	ExpirationIntent string `json:"expiration_intent"`
+	ExpirationIntent string `json:"expiration_intent" bson:"expiration_intent"`
 
 	// Auto renew info
-	AutoRenewStatus    string `json:"auto_renew_status"` // false or true
-	AutoRenewProductID string `json:"auto_renew_product_id"`
+	AutoRenewStatus    string `json:"auto_renew_status" bson:"auto_renew_status"` // false or true
+	AutoRenewProductID string `json:"auto_renew_product_id" bson:"auto_renew_product_id"`
 
 	// Posted if the notification_type is RENEWAL or INTERACTIVE_RENEWAL, and only if the renewal is successful.
 	// Posted also if the notification_type is INITIAL_BUY.
 	// Not posted for notification_type CANCEL.
 	// Deprecated: use UnifiedReceipt.LatestReceipt instead. See details: https://developer.apple.com/documentation/appstoreservernotifications/ .
-	LatestReceipt string `json:"latest_receipt"`
+	LatestReceipt string `json:"latest_receipt" bson:"-"`
 	// Deprecated: use UnifiedReceipt.LatestReceiptInfo instead. See details: https://developer.apple.com/documentation/appstoreservernotifications/ .
-	LatestReceiptInfo NotificationReceipt `json:"latest_receipt_info"`
+	LatestReceiptInfo NotificationReceipt `json:"latest_receipt_info" bson:"-"`
 
 	// In the new notifications above properties latest_receipt, latest_receipt_info are moved under this one
-	UnifiedReceipt NotificationUnifiedReceipt `json:"unified_receipt"`
+	UnifiedReceipt NotificationUnifiedReceipt `json:"unified_receipt" bson:"unified_receipt"`
 
 	// Posted only if the notification_type is RENEWAL or CANCEL or if renewal failed and subscription expired.
 	// Deprecated: see details: https://developer.apple.com/documentation/appstoreservernotifications/ .
-	LatestExpiredReceipt string `json:"latest_expired_receipt"`
+	LatestExpiredReceipt string `json:"latest_expired_receipt" bson:"-"`
 	// Deprecated: see details: https://developer.apple.com/documentation/appstoreservernotifications/ .
-	LatestExpiredReceiptInfo NotificationReceipt `json:"latest_expired_receipt_info"`
+	LatestExpiredReceiptInfo NotificationReceipt `json:"latest_expired_receipt_info" bson:"-"`
 
 	// Posted only if the notification_type is CANCEL.
-	CancellationDate
+	CancellationDate `bson:"-"`
 }
