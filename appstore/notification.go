@@ -59,11 +59,11 @@ type NotificationReceipt struct {
 }
 
 type NotificationUnifiedReceipt struct {
-	Status             int                  `json:"status"`
-	Environment        Environment          `json:"environment"`
-	LatestReceipt      string               `json:"latest_receipt"`
-	LatestReceiptInfo  []InApp              `json:"latest_receipt_info"`
-	PendingRenewalInfo []PendingRenewalInfo `json:"pending_renewal_info,omitempty"`
+	Status             int                  `json:"status" bson:"status"`
+	Environment        Environment          `json:"environment" bson:"environment"`
+	LatestReceipt      string               `json:"latest_receipt" bson:"latest_receipt"`
+	LatestReceiptInfo  []InApp              `json:"latest_receipt_info" bson:"latest_receipt_info"`
+	PendingRenewalInfo []PendingRenewalInfo `json:"pending_renewal_info,omitempty" bson:"pending_renewal_info,omitempty"`
 }
 
 type SubscriptionNotification struct {
